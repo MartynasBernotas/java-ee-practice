@@ -2,8 +2,8 @@ package lt.vu.usecases;
 
 import lombok.Getter;
 import lombok.Setter;
-import lt.vu.mybatis.dao.TeamMapper;
-import lt.vu.mybatis.model.Team;
+import lt.vu.mybatis.model.Artist;
+import lt.vu.mybatis.dao.ArtistMapper;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -12,28 +12,28 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Model
-public class TeamsMyBatis {
+public class ArtistsMyBatis {
     @Inject
-    private TeamMapper teamMapper;
+    private ArtistMapper artistMapper;
 
     @Getter
-    private List<Team> allTeams;
+    private List<Artist> allArtists;
 
     @Getter @Setter
-    private Team teamToCreate = new Team();
+    private Artist artistToCreate = new Artist();
 
     @PostConstruct
     public void init() {
-        this.loadAllTeams();
+        this.loadAllArtists();
     }
 
-    private void loadAllTeams() {
-        this.allTeams = teamMapper.selectAll();
+    private void loadAllArtists() {
+        this.allArtists = artistMapper.selectAll();
     }
 
     @Transactional
-    public String createTeam() {
-        teamMapper.insert(teamToCreate);
+    public String createArtist() {
+        artistMapper.insert(artistToCreate);
         return "/myBatis/teams?faces-redirect=true";
     }
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head/>
+<h:body>
+    <h2>Artist</h2>
+    <ol>
+        <ui:repeat value="#{artists.allArtists}" var="artist">
+            <li>
+                <h:link value="#{artist.name}" outcome="albums?artistId=#{artist.id}" />
+            </li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText a:placeholder="name" value="#{artists.artistToCreate.name}" required="true" />
+        <h:commandButton value="Add new artist" action="#{artists.createArtist}" />
+    </h:form>
+    <br/>
+    <h:link outcome="index" value="Back to main page"/>
+</h:body>
+</html>

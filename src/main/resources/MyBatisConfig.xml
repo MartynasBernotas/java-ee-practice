@@ -4,8 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="lt.vu.mybatis.model.Team" alias="Team"/>
-        <typeAlias type="lt.vu.mybatis.model.Player" alias="Player"/>
+        <typeAlias type="lt.vu.mybatis.model.Artist" alias="Artist"/>
+        <typeAlias type="lt.vu.mybatis.model.Album" alias="Album"/>
+        <typeAlias type="lt.vu.mybatis.model.Song" alias="Song"/>
+        <typeAlias type="lt.vu.mybatis.model.Style" alias="Style"/>
+        <typeAlias type="lt.vu.mybatis.model.SongsStyles" alias="SongsStyles"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -16,7 +19,10 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mybatis.xml/TeamMapper.xml"/>
-        <mapper resource="mybatis.xml/PlayerMapper.xml"/>
+        <mapper resource="mybatis.xml/ArtistMapper.xml"/>
+        <mapper resource="mybatis.xml/AlbumMapper.xml"/>
+        <mapper resource="mybatis.xml/SongMapper.xml"/>
+        <mapper resource="mybatis.xml/StyleMapper.xml"/>
+        <mapper resource="mybatis.xml/SongsStylesMapper.xml"/>
     </mappers>
 </configuration>

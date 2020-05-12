@@ -6,16 +6,14 @@
 >
 <h:head/>
 <h:body>
-    <h2>Teams:</h2>
+    <h2>Your favorite songs list</h2>
     <ol>
-        <ui:repeat value="#{teams.allTeams}" var="team">
-            <li><h:link value="#{team.name}" outcome="players?teamId=#{team.id}" /></li>
-        </ui:repeat>
-    </ol>
-    <h:form>
-        <h:inputText value="#{teams.teamToCreate.name}" required="true" />
-        <h:commandButton value="Add new team" action="#{teams.createTeam}" />
-    </h:form>
-    <h:link outcome="myBatis/teams" value="MyBatis implementation"/>
-</h:body>
-</html>
+        <ui:repeat value="#{songs.allSongs}" var="song">
+            <li><h:link value="#{song.name} (#{song.artist.name})" outcome="song?songId=#{song.id}" /></li>
+         </ui:repeat>
+     </ol>
+     <h:link outcome="artist" value="Add songs by artists"/>
+    <br/>
+    <h:link outcome="styles" value="Manage Styles"/>
+ </h:body>
+ </html>
